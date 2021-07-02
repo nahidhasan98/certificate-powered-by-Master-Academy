@@ -1,0 +1,134 @@
+{{ block "topbarRight" .}}
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+        <button class="mdc-button mdc-button--outlined" onclick="window.location.href='/login';" style="background-color: white;">
+            <span class="mdc-button__ripple"></span>
+            <span class="mdc-button__label">Login</span>
+        </button>
+    </section>
+{{ end }}
+
+{{ block "page" .}}
+
+    {{/* notification pop up */}}
+    <div class="mdc-snackbar mdc-snackbar--stacked">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label" role="status" aria-live="polite">
+                This item already has the label "travel". You can add a new label.
+            </div>
+            <div class="mdc-snackbar__actions">
+                <button type="button" class="mdc-button mdc-snackbar__action">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Retry</span>
+                </button>
+                <button class="mdc-icon-button mdc-snackbar__dismiss material-icons" title="Dismiss">close</button>
+            </div>
+        </div>
+    </div>
+
+    {{/* registration */}}
+    <section id="register">
+        <div class="mdc-card mdc-elevation--z4 loginCard" style="width: 520px; top:10px; padding: 10px 40px;">
+            <form id="regForm" action="" method="POST">
+                <table class="mytable">
+                    <tbody>
+                        <tr>
+                            <td colspan="2">
+                                <section class="loginHeader">
+                                    <h1 class="mdc-typography--headline6 loginTitle" style="margin-bottom: 20px;">Create an account</h1>
+                                </section>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-right: 10px;">
+                                <!-- ... firstName ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-firstName">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-firstName">First Name</span>
+                                    <input id="firstName" name="firstName" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id-firstName">
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                            <td style="padding-left: 10px;">
+                                <!-- ... lastName ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-lastName">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-lastName">Last Name</span>
+                                    <input id="lastName" name="lastName" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id-lastName">
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <!-- ... username ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-username">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-username">Username</span>
+                                    <input id="username" name="username" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id-username" required>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <!-- ... email ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-email">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-email">Email</span>
+                                    <input id="email" name="email" class="mdc-text-field__input" type="email" aria-labelledby="my-label-id-email" required>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <!-- ... password ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-password">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-password">Password</span>
+                                    <input id="password" name="password" class="mdc-text-field__input" type="password" aria-labelledby="my-label-id-password" required>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <!-- ... confirm password ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-confirm-password">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-confirm-password">Confirm Password</span>
+                                    <input id="confirmPassword" name="confirmPassword" class="mdc-text-field__input" type="password" aria-labelledby="my-label-id-confirm-password"required>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <!-- ... button ... -->
+                                <div class="login-button-container" style="margin-top: 10px; margin-bottom: 10px;">
+                                    <button id="btnRegister" class="mdc-button mdc-button--raised">
+                                        <span class="mdc-button__ripple"></span>
+                                        <span class="mdc-button__label">Register</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <input type="hidden" name="remarks" value="Added by Form">
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </section>
+
+{{ end }}
+
+{{ block "scripts" . }}
+    <script src="resources/scripts/register.js"></script>
+{{ end }}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Email Verification</title>
+    <meta http–equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http–equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            font-family: Arial, vrinda, times new roman, sans-serif;
+            font-size: 15px;
+            line-height: 20px;
+            color: #000;
+        }
+
+        #content {
+            background: white;
+            border: 3px solid #6200EE;
+            width: 99%;
+            float: left;
+        }
+
+        #header {
+            height: 80px;
+            overflow: hidden;
+            background: #6200EE;
+            border-bottom: 3px solid #6200EE;
+        }
+
+        img {
+            width: 180px;
+            height: 80px;
+        }
+
+        #verify {
+            padding: 8px 10px;
+            font-size: 14px;
+            background: #6200EE;
+            border-radius: 3px;
+            color: white;
+            text-decoration: none;
+        }
+
+        #verify:hover {
+            cursor: pointer;
+            background: #6E14EF;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <center>
+            <div id="header">
+                <a href="http://localhost:9000">
+                    <img src="https://drive.google.com/u/0/uc?id=1yd-OYZrt2XnaP0XBp1sXzEMRPdtHLRqO">
+                </a>
+            </div>
+            <div style="padding:10px;">
+                <p>Hi <span style="color:#6200EE; font-size:16px;">{{ .Username }}<span>,</p>
+                <p style="margin-bottom:20px;">Thank you for registration to Master-Academy. Please click the link below
+                    to verify your email address.</p>
+                <a id="verify" href="{{ .Link }}">Verify Email</a>
+                <p style="margin-top:20px;">This account verification link is valid for next 30 minutes. After link
+                    expiration, the above link will help you to get a new link.</p>
+            </div>
+            <div style="padding:10px;width:30%;border-top:2px solid #6200EE">
+                <p>Thanks</p>
+                <p>Master-Academy</p>
+            </div>
+        </center>
+    </div>
+</body>

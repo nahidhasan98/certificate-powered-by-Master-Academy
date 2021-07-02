@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" />
+
+    <!-- ... base styles ... -->
+    <link rel="stylesheet" href="resources/styles/main.css">
+
+    <!-- ... custom styles ... -->
+    {{ block "styles" . }}
+
+    {{ end }}
+</head>
+
+<body>
+    <!-- ... container ... -->
+    <div id="container">
+        <div id="main">
+            {{ block "topbar" .}}
+                <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+                    <div class="mdc-top-app-bar__row">
+                        {{ block "topbarLeft" .}}
+                            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                                <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">menu</button>
+                                <span class="mdc-top-app-bar__title"><a href="/" style="text-decoration: none; color: white;">MASTER-ACADEMY</a></span>
+                            </section>
+                        {{ end }}
+
+                        {{ block "topbarRight" . }}
+                            {{ if ne .Username "" }}
+                                <p id="sessionUser" style="display: none;">{{ .Username }}</p>
+                                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                                    <button id="dashboard" class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Profile">
+                                        <span class="mdc-button__ripple"></span>
+                                        <span class="material-icons">account_circle</span>
+                                    </button>
+
+                                    <div class="mdc-menu-surface--anchor">
+                                        <div class="mdc-menu mdc-menu-surface">
+                                            <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                                                <a href="/dashboard" style="text-decoration: none; color: currentcolor;">
+                                                    <li class="mdc-list-item" role="menuitem">
+                                                        <span class="mdc-list-item__ripple"></span>
+                                                        <span class="material-icons mdc-list-item__graphic">dashboard_customize</span>
+                                                        <span class="mdc-list-item__text">Dashboard</span>
+                                                    </li>
+                                                </a>
+
+                                                <a>
+                                                    <li class="mdc-list-item" role="menuitem">
+                                                    <span class="mdc-list-item__ripple"></span>
+                                                        <span class="material-icons mdc-list-item__graphic">manage_accounts</span>
+                                                        <span class="mdc-list-item__text">Profile</span>
+                                                    </li>
+                                                </a>
+
+                                                <a>
+                                                    <li class="mdc-list-item" role="menuitem">
+                                                        <span class="mdc-list-item__ripple"></span>
+                                                        <span class="material-icons mdc-list-item__graphic">fingerprint</span>
+                                                        <span class="mdc-list-item__text">Change Password</span>
+                                                    </li>
+                                                </a>
+
+                                                <a href="/logout" style="text-decoration: none; color: currentcolor;">
+                                                    <li class="mdc-list-item" role="menuitem">
+                                                        <span class="mdc-list-item__ripple"></span>
+                                                            <span class="material-icons mdc-list-item__graphic">logout</span>
+                                                            <span class="mdc-list-item__text">Logout</span>
+                                                    </li>
+                                                </a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+                            {{ else }}
+                                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                                    <button class="mdc-button mdc-button--outlined" onclick="window.location.href='/login';"
+                                        style="background-color: white;">
+                                        <span class="mdc-button__ripple"></span>
+                                        <span class="mdc-button__label">Login</span>
+                                    </button>
+                                    <button class="mdc-button mdc-button--outlined registerButton"
+                                        onclick="window.location.href='/register';" style="background-color: white; margin-left: 15px;">
+                                        <span class="mdc-button__ripple"></span>
+                                        <span class="mdc-button__label">Register</span>
+                                    </button>
+                                </section>
+                            {{ end }}
+                        {{ end }}
+                    </div>
+                </header>
+            {{ end }}
+
+            {{ block "drawer" . }}
+                <section id="drawer">
+                    <aside class="mdc-drawer mdc-drawer--modal">
+                        <div class="mdc-drawer__header">
+                            <h3 class="mdc-drawer__title">Admin</h3>
+                            <h6 class="mdc-drawer__subtitle">Master Academy</h6>
+                        </div>
+
+                        <div class="mdc-drawer__content">
+                            <nav class="mdc-list">
+                                <a class="mdc-list-item mdc-list-item--activated" href="/dashboard" aria-current="page" tabindex="0">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                                    <span class="mdc-list-item__text">Dashboard</span>
+                                </a>
+                                
+                                <a class="mdc-list-item" href="/settings">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings</i>
+                                    <span class="mdc-list-item__text">Settings</span>
+                                </a>
+
+                                <hr class="mdc-list-divider">
+                                <h6 class="mdc-list-group__subheader">Student</h6>
+                                <a class="mdc-list-item mdc-list-item" href="/student_list" aria-current="page" tabindex="0">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">format_list_numbered</i>
+                                    <span class="mdc-list-item__text">Student List</span>
+                                </a>
+
+                                <hr class="mdc-list-divider">
+                                <h6 class="mdc-list-group__subheader">Certificate</h6>
+                                <a class="mdc-list-item mdc-list-item" href="/cert_req_list" aria-current="page" tabindex="0">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">format_list_numbered</i>
+                                    <span class="mdc-list-item__text">Request List</span>
+                                </a>
+                            </nav>
+                        </div>
+                    </aside>
+
+                    <div id="scrollbar" class="mdc-drawer-scrim"></div>
+                    <main class="mdc-top-app-bar--fixed-adjust"></main>
+                </section>
+            {{ end }}
+
+            {{ block "page" . }}
+                <section id="home">
+                    <div class="loginCard">
+                        <div class="mdc-card" style="text-align: center;">
+                            <h1 class="mdc-typography--headline3">Hello everyone, Welcome.</h1>
+                        </div>
+                    </div>
+                </section>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- ... footer ... -->
+    <footer id="footer">
+        <div class="copyright">© 2021 Master-Academy</div>
+    </footer>
+
+    <!-- ... default scripts ... -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="resources/scripts/main.js"></script>
+
+    <!-- ... custom scripts ... -->
+    {{ block "scripts" . }}
+
+    {{ end }}
+</body>
+
+</html>

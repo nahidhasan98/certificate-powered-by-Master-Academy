@@ -1,0 +1,41 @@
+.my-card {
+    height: 350px;
+    width: 350px;
+}
+.my-card-content {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0rem;
+}
+.box_area {
+    display: flex;
+    padding: 0rem;
+    justify-content: space-between;
+}
+.coin-title--style {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: .0125em;
+    background-color: transparent;
+    color: #4D4D4D;
+}
+.coin-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+}
+.coin-balance--style {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    letter-spacing: .0125em;
+    color: #607D8B;
+    margin-top: 1rem;
+    margin-bottom: 0px;
+    background-color: transparent;
+}
+.coin-balance {
+    flex: 0 0 auto;
+}

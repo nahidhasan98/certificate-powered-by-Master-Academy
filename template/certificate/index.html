@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="D:/GOLANG/src/master_academy/master_certificate/template/certificate/assets/fonts/font-stylesheet.css">
+    <!-- <link rel="stylesheet"
+        href="D:/GOLANG/src/master_academy/master_certificate/template/certificate/assets/css/style.css"> -->
+    <title>Certificate</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: rgb(204, 204, 204);
+            /* background: red; */
+            height: 26.23cm;
+            overflow: hidden;
+        }
+
+        .Certificate-container {
+            /* background-color: green; */
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .certificate-bg {
+            background: url(D:/GOLANG/src/master_academy/master_certificate/template/certificate/assets/images/bg.jpg) no-repeat center center;
+            background-size: 100% 100%;
+            width: 100%;
+            height: 100%;
+            /* margin: -26px 0px 0px -28px; */
+        }
+
+        .inner-container {
+            /* background-color: blue; */
+            width: 84%;
+            height: 80%;
+            left: 7.4%;
+            top: 11%;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .certificate-header {
+            /* background-color: aquamarine; */
+            height: 130px;
+            margin-bottom: 64px;
+        }
+
+        .logo-left img {
+            width: 130px;
+            height: 130px;
+            position: absolute;
+            left: 0;
+        }
+
+        .logo-right img {
+            width: 130px;
+            height: 130px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .subheading {
+            font-family: Roboto;
+            font-size: 24px;
+            font-weight: 300;
+            color: #231F20;
+        }
+
+        .content-heading {
+            font-family: 'lemonmilkbold';
+            color: #58595B;
+            font-size: 32px;
+            line-height: 36px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .certificate-main-content {
+            /* background-color: bisque; */
+            position: relative
+        }
+
+        .cert-title {
+            font-family: 'elephantregular';
+            font-size: 44px;
+            color: #2E3192;
+        }
+
+        .sub-head-2 {
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .participent-name {
+            font-family: 'edwardian_script_itcregular';
+            font-size: 64px;
+            color: #2E3192;
+        }
+
+        .comments {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .course-name {
+            font-family: 'elephantregular';
+            color: #73CDDC;
+            font-size: 34px;
+        }
+
+        .duration {
+            color: #517188;
+            font-size: 26px;
+            margin-top: 10px;
+        }
+
+        .barcode {
+            position: absolute;
+            bottom: 0%;
+        }
+
+        .barcode img {
+            width: 120px;
+            margin-bottom: -16px;
+            margin-left: 4px;
+        }
+
+        .barcode p {
+            font-family: Roboto;
+            font-size: 16px;
+        }
+
+        .course-logo {
+            position: absolute;
+            right: 0;
+            top: 13%;
+        }
+
+        .course-logo img {
+            width: 180px;
+        }
+
+        .authorize-section {
+            /* background-color: linen; */
+            width: 84%;
+            position: relative;
+            margin: auto;
+            margin-top: 150px;
+            padding: 0px 60px;
+        }
+
+        .diviver {
+            border: 1px solid #231F20;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+        }
+
+        .author-name {
+            font-family: 'rajdhanisemibold';
+            text-transform: uppercase;
+            font-size: 22px;
+            color: #262626;
+        }
+
+        .designation,
+        .institute {
+            font-family: 'rajdhanilight';
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Certificate-container">
+        <div class="certificate-bg">
+            <div class="inner-container">
+                <div class="certificate-header">
+                    <div class="logo-left logo"><img
+                            src="D:/GOLANG/src/master_academy/master_certificate/template/certificate/assets/images/copyright_logo.png">
+                    </div>
+                    <div class="certificate-header-content text-center">
+                        <div class="subheading">Coding Boot Camp, Joint initiative of</div>
+                        <div class="content-heading">
+                            Bangladesh Copyright Office &amp;<br> MASTER-ACADEMY
+                        </div>
+                    </div>
+                    <div class="logo-right logo"><img
+                            src="D:/GOLANG/src/master_academy/master_certificate/template/certificate/assets/images/mca.png">
+                    </div>
+                </div>
+
+                <div class="certificate-main-content">
+                    <div class="cert-title text-center">Certificate of Participation</div>
+                    <div class="sub-head-2 subheading text-center">This is to certify that</div>
+                    <div class="participent-name text-center">{{ .StudentsName }}</div>
+                    <div class="comments subheading text-center">has successfully completed the online course on
+                    </div>
+                    <div class="course-name text-center">{{ .CourseName }}</div>
+                    <div class="duration text-center">Duration<br>{{ .Duration }}</div>
+                    <div class="barcode">
+                        <img src="{{ .QRImagePath }}">
+                        <p>{{ .QRText }}</p>
+                    </div>
+                    <div class="course-logo"><img
+                            src="D:/GOLANG/src/master_academy/master_certificate/template/certificate/assets/images/golang.png">
+                    </div>
+                </div>
+
+                <div class="authorize-section">
+                    <div class="author-1 text-center" style="width: 280px; left: 0;">
+                        <div class="signatuer-1">signature</div>
+                        <div class="diviver" style="border: 1px solid #231F20; margin-bottom: 5px;"></div>
+                        <div class="author-name">Mostain Billah</div>
+                        <div class="designation">Founder, MASTER-ACADEMY</div>
+                        <div class="institute">President, MATEORS DOT COM LLC</div>
+                    </div>
+                    <div class="author-1 text-center"
+                        style="width: 280px;position: absolute;left: 415px;top: 0;padding: 0px 0px;">
+                        <div class="signatuer-1">signature</div>
+                        <div class="diviver" style="border: 1px solid #231F20; margin-bottom: 5px;"></div>
+                        <div class="author-name">TODD MCLEOD</div>
+                        <div class="designation">Professor</div>
+                        <div class="institute">California State University</div>
+                    </div>
+                    <div class="author-1 text-center" style="width: 280px;position: absolute;right: 60px;top: 0;">
+                        <div class="signatuer-1">signature</div>
+                        <div class="diviver" style="border: 1px solid #231F20; margin-bottom: 5px;"></div>
+                        <div class="author-name">JAFOR RAJA CHOWDHURY</div>
+                        <div class="designation">Register of Copyrights</div>
+                        <div class="institute">Bangladesh Copyright Office</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //window.print();
+    </script>
+</body>
+
+</html>

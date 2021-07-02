@@ -1,0 +1,114 @@
+{{ block "page" .}}
+
+    {{/* notification pop up */}}
+    <div class="mdc-snackbar mdc-snackbar--stacked">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label" role="status" aria-live="polite">
+                This item already has the label "travel". You can add a new label.
+            </div>
+            <div class="mdc-snackbar__actions">
+                <button type="button" class="mdc-button mdc-snackbar__action">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Retry</span>
+                </button>
+                <button class="mdc-icon-button mdc-snackbar__dismiss material-icons" title="Dismiss">close</button>
+            </div>
+        </div>
+    </div>
+
+    {{/* registration */}}
+    <section id="apply">
+        <div class="mdc-card mdc-elevation--z4 loginCard" style="width: 520px; top:10px; padding: 10px 40px;">
+            <form id="applyForm" action="" method="POST">
+                <table class="mytable">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <section class="loginHeader">
+                                    <h1 class="mdc-typography--headline6 loginTitle" style="margin-bottom: 20px;">Request for a Certificate</h1>
+                                </section>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <!-- ... studentsName ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-studentsName" style="width: 430px;">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-studentsName">Full Name</span>
+                                    <input id="studentsName" name="studentsName" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id-studentsName" required>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <!-- ... email ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-email">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-email">Email</span>
+                                    <input id="email" name="email" class="mdc-text-field__input" type="email" aria-labelledby="my-label-id-email" required>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <!-- ... courseName ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-courseName">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-courseName">Course Name</span>
+                                    <input id="courseName" name="courseName" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id-courseName" required>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <!-- ... duration ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-duration">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-duration">Duration</span>
+                                    <input id="duration" name="duration" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id-duration" required>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <!-- ... codewarsUsername ... -->
+                                <label class="mdc-text-field mdc-text-field--filled mdc-text-field-codewarsUsername">
+                                    <span class="mdc-text-field__ripple"></span>
+                                    <span class="mdc-floating-label" id="my-label-id-codewarsUsername">Codewars Username</span>
+                                    <input id="codewarsUsername" name="codewarsUsername" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id-codewarsUsername"required>
+                                    <span class="mdc-line-ripple"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <!-- ... button ... -->
+                                <div class="login-button-container" style="margin-top: 10px; margin-bottom: 10px;">
+                                    <button id="btnApply" class="mdc-button mdc-button--raised">
+                                        <span class="mdc-button__ripple"></span>
+                                        <span class="mdc-button__label">Apply</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </section>
+
+{{ end }}
+
+{{ block "scripts" . }}
+    <script src="resources/scripts/apply.js"></script>
+{{ end }}

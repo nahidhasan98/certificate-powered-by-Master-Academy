@@ -1,0 +1,56 @@
+{{ block "styles" . }}
+    <link rel="stylesheet" href="resources/styles/dashboard.css">
+{{ end }}
+
+{{ block "page" .}}
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell--span-3">
+                <div class="mdc-card my-cards bg-c-yellows">
+                    <div class="mdc-card__primary-action my-card-content" tabindex="0">
+                        <div class="box_area">
+                            <div class="coin-title coin-title--style">STD</div>
+                            <div class="coin-balance coin-balance--style">{{ .TotalStudents }}</div>
+                        </div>
+                    </div>
+
+                    <div class="mdc-card__actions">
+                        <div class="mdc-card__action-buttons">
+                            <a href="/student_list" class="mdc-button mdc-card__action mdc-card__action--button">
+                                <span class="mdc-button__label">Students</span>
+                            </a>
+                        </div>
+
+                        <div class="mdc-card__action-icons">
+                            <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdc-layout-grid__cell--span-3">
+                <div class="mdc-card my-cards bg-c-yellows">
+                    <div class="mdc-card__primary-action my-card-content" tabindex="0">
+                        <div class="box_area"><div class="coin-title coin-title--style">CERT</div>
+                        <div class="coin-balance coin-balance--style">{{ .CertRquestPending }}/{{ .CertRquestDelivered }}</div></div>
+                    </div>
+
+                    <div class="mdc-card__actions">
+                        <div class="mdc-card__action-buttons">
+                        <a href="/cert_req_list" class="mdc-button mdc-card__action mdc-card__action--button">
+                            <span class="mdc-button__label">Request</span>
+                        </a>
+                        </div>
+                        <div class="mdc-card__action-icons">
+                            <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ end }}
+
+{{ block "scripts" . }}
+    <script src="resources/scripts/dashboard.js"></script>
+{{ end }}
